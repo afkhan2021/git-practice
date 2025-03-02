@@ -4,8 +4,8 @@ agent {
         label 'agent1' // Use the label 'agent' to target your Jenkins slave
     }
     environment {
-        GIT_REPO = 'git@github.com:zaftechnologies/git-practice.git'
-        DIRECTORY_NAME = 'artifact'  // Name of the directory where repo will be cloned
+        GIT_REPO = 'git@github.com:afkhan2021/git-practice.git'
+        DIRECTORY_NAME = 'artifact'  // Name of the directory where repo will becloned
     }
 
     stages {
