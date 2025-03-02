@@ -1,11 +1,9 @@
 pipeline {
+    agent any  // Allows the pipeline to run on any available agent
 
-agent {
-        any  // Allows the pipeline to run on any available agent
-    }
     environment {
-        GIT_REPO = 'git@github.com:afkhan2021/git-practice.git'
-        DIRECTORY_NAME = 'artifact'  // Name of the directory where repo will becloned
+        GIT_REPO = 'git@github.com:zaftechnologies/git-practice.git'
+        DIRECTORY_NAME = 'artifact'  // Name of the directory where repo will be cloned
     }
 
     stages {
@@ -22,7 +20,7 @@ agent {
             steps {
                 // Print the current working directory to debug
                 sh 'ls hello_world.sh'
-                sh 'ls'  // List the contents to confirm the repo is
+                sh 'ls'  // List the contents to confirm the repo is cloned
                 sh 'pwd'
                 sh 'mkdir -p artifact'
                 sh 'echo Hello > artifact/test.txt'
@@ -39,7 +37,7 @@ agent {
         stage('Create tar.gz Archive') {
             steps {
                 script {
-                    // Create zip file    
+                    // Create tar.gz archive
                     sh "tar -czf ${DIRECTORY_NAME}.tar.gz ${DIRECTORY_NAME}"
                 }
             }
@@ -64,5 +62,5 @@ agent {
             echo 'Pipeline failed. Check logs for details.'
         }
     }
-
 }
+
