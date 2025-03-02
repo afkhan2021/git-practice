@@ -1,8 +1,8 @@
 pipeline {
 
 agent {
-        label 'agent1' // Use the label 'agent' to target your Jenkins slave
-    }
+    agent any  // Allows the pipeline to run on any available agent
+    
     environment {
         GIT_REPO = 'git@github.com:afkhan2021/git-practice.git'
         DIRECTORY_NAME = 'artifact'  // Name of the directory where repo will becloned
